@@ -71,7 +71,7 @@ namespace SistemaVenta.BLL.Servicios
                 productoEncontrado.EsActivo = productoModelo.EsActivo;
 
                 bool respuesta = await _productoRepositorio.Editar(productoEncontrado);
-                if (respuesta)
+                if (!respuesta)
                 {
                     throw new TaskCanceledException("No se pudo editar el producto.");
                 }
@@ -95,7 +95,7 @@ namespace SistemaVenta.BLL.Servicios
                 }
 
                 bool respuesta = await _productoRepositorio.Eliminar(productoEncontrado);
-                if (respuesta)
+                if (!respuesta)
                 {
                     throw new TaskCanceledException("No se pudo eliminar el producto.");
                 }
